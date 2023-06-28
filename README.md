@@ -68,10 +68,10 @@ Prototype: int _printf(const char *format, ...);
 * Handle the following custom conversion specifier
 
 
-### 16. * 
+### 16. *
 * All the above options work well together.
 
 
 ---
-# Authors: 
+# Authors:
 [Somsamsek](https://github.com/Somsamsek) and [Peterkin Yanzu](https://github.com/jnrkin30)
