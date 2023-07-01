@@ -1,28 +1,43 @@
 #include "main.h"
+#include <unistd.h>
 
 /**
- * cnvrt - converts number and base into string
- * @num: input number
- * @bs: input base
- * @lwrcs: flag if hexa values need to be lowercase
- * Return: result string
+ * _putchar - writes the character g to stdout
+ * @c: The character to print
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ * Description: _putchar uses a local buffer of 1024 to call write
  */
 
-char *cnvrt(unsigned long int num, int bs, int lwrcs)
+int _putchar(char c)
 {
-	static char *repre;
-	static char buffer[50];
-	char *ptr;
+	static char buf[1024];
+	static int j;
 
-	repre = (lowercase)
-		? "0123456789abcdef"
-		: "0123456789ABCDEF";
-	ptr = &buffer[49];
-	*ptr = '\0';
-	do {
-		*--ptr = repre[num % bs];
-		num /= bs;
-	} while (num != 0);
+	if (c == -1 || j >= 1024)
+	{
+		write(1, &buf, j);
+		j = 0;
+	}
+	if (c != -1)
+	{
+		buf[j] = c;
+		j++;
+	}
+	return (1);
+}
 
-	return (ptr);
+/**
+ * _puts - prints a string to stdout
+ * @sr: pointer to the string to print
+ * Return: number of chars written
+ */
+
+int _puts(char *sr)
+{
+	register int j;
+
+	for (j = 0; sr[j] != '\0'; j++)
+		_putchar(sr[j]);
+	return (j);
 }

@@ -15,26 +15,26 @@ int (*get_prnt(char g))(va_list, options *)
 {
 	ph func_array[] = {
 		{'i', _integers},
-		{'s', print_string},
-		{'c', print_char},
-		{'d', print_int},
-		{'u', print_unsigned},
-		{'x', print_hex},
-		{'X', print_hex_big},
-		{'b', print_binary},
-		{'o', print_octal},
-		{'R', print_rot13},
-		{'r', print_rev},
-		{'S', print_bigS},
-		{'p', print_address},
-		{'%', print_percent}
+		{'s', _string},
+		{'c', _char},
+		{'d', _integers},
+		{'u', _unsigned},
+		{'x', _hexadec},
+		{'X', _hexbig},
+		{'b', _binary},
+		{'o', _octal},
+		{'R', _rot13},
+		{'r', _rev},
+		{'S', _bigS},
+		{'p', _address},
+		{'%', _percent}
 		};
 	int flags = 14;
 
 	register int i;
 
 	for (i = 0; i < flags; i++)
-		if (func_arr[i].c == s)
-			return (func_arr[i].f);
+		if (func_array[i].c == s)
+			return (func_array[i].f);
 	return (NULL);
 }
